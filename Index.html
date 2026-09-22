@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>💖 An email for you 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+  body {
+    font-family: "Poppins", sans-serif;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* mejor que height */
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    color: #333;
+    transition: background-color 0.5s ease;
+  }
+
+  h2 {
+    margin-bottom: 20px;
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
+  }
+
+  .screen {
+    display: none;
+    animation: fadeIn 0.8s ease;
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .active {
+    display: block;
+  }
+
+  .main-img {
+    width: 80%;
+    max-width: 280px;
+    height: auto;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .main-img:hover {
+    transform: scale(1.05);
+  }
+
+  .card {
+    background: repeating-linear-gradient(
+      white,
+      white 28px,
+      #e3e3e3 29px
+    );
+    padding: 25px;
+    border: 2px solid #e5e5e5;
+    width: 100%;
+    max-width: 800px;
+    text-align: left;
+    margin: 0 auto;
+    box-sizing: border-box;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    animation: fadeIn 1s ease;
+  }
+
+  .card h3 {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1.5rem, 5vw, 2em);
+    margin-bottom: 15px;
+    color: #444;
+  }
+
+  .card p {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(1.1rem, 4vw, 1.3em);
+    line-height: 1.6;
+    text-align: justify;
+    color: #444;
+  }
+
+  .return-btn {
+    margin-top: 25px;
+    padding: 12px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: #ff4f81;
+    color: white;
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .return-btn:hover {
+    background-color: #ff2a66;
+  }
+
+  @keyframes fadeIn {
+    from {opacity: 0; transform: scale(0.95);}
+    to {opacity: 1; transform: scale(1);}
+  }
+
+  /* Ajustes extra para pantallas pequeñas */
+  @media (max-width: 480px) {
+    body {
+      justify-content: flex-start;
+      padding-top: 40px;
+    }
+
+    .card {
+      padding: 20px;
+    }
+  }
+</style>
+
+</head>
+<body>
+  <div class="screen active" id="screen1">
+    <h2>Hi, did you get an email</h2>
+    <img src="cartero.jpg" alt="Correo" class="main-img" onclick="nextScreen(2)">
+  </div>
+  <div class="screen" id="screen2">
+    <h2>A little letter for you</h2>
+    <img src="cartacerrada.jpg" alt="Carta" class="main-img" onclick="nextScreen(3)">
+  </div>
+  <div class="screen" id="screen3">
+    <h2>Open it!</h2>
+    <img src="cartaabierta.jpg" alt="Sobre" class="main-img" onclick="nextScreen(4)">
+  </div>
+  <div class="screen" id="screen4">
+    <h2>What could it say?</h2>
+    <img src="carta.jpg" alt="Carta lista" class="main-img" onclick="nextScreen(5)">
+  </div>
+  <div class="screen" id="screen5">
+    <div class="card">
+      <h3>Querida Alexandra,</h3>
+
+<p>Creo que quizás no es el mejor día, así que quería dejarte un pequeño detalle con la esperanza de que pueda animarte, aunque sea un poquito.</p>
+
+<p>Quizá no tengas como tal tus propias flores amarillas,así que, quería dejarte este pequeño detalle para sacarte una pequeña sonrisa.</p>
+
+<p>Espero que esta carta te hagan sentir un poquito mejor y te recuerden que hay personas que se preocupan por ti y quieren verte feliz. Te mereces momentos de tranquilidad, felicidad y pequeñas razones para sonreír, incluso en los días difíciles.</p>
+
+<p>Así que, cada vez que veas esta carta, espero que te recuerden que después de un día difícil siempre puede venir uno un poquito mejor.</p>
+
+<p>Con cariño,</p>
+
+<p>Gabriel</p>
+    </div>
+    <div style="text-align: center;">
+      <button class="return-btn" onclick="nextScreen(1)">🔙 Regresar</button>
+    </div>
+  </div>
+  <script>
+    function nextScreen(num) {
+      const current = document.querySelector(".screen.active");
+      if (current) current.classList.remove("active");
+      document.getElementById("screen" + num).classList.add("active");
+    }
+  </script>
+</body>
+</html>
+
+
